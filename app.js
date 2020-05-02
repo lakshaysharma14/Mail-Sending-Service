@@ -3,21 +3,23 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const nodemailer = require('nodemailer');
-
 var hbs = exphbs.create({ /* config */ });
-
 const app = express();
+var config = require('./config/secret');
+//-------------------------------------------------------------------------
 
 app.engine('handlebars',exphbs());
 app.set('view engine', 'handlebars');
 
+
+//--------------------------------------------------------------------------
 // Static folder
 app.use('/public', express.static(path.join(__dirname, 'public')));
-
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//---------------------------------------------------------------------------
 app.get('/', (req, res) => {
   res.render('contact',{layout: false});
 });
@@ -44,8 +46,8 @@ app.post('/send', (req, res) => {
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-          user: 'developerlakshay14@gmail.com', // generated ethereal user
-          pass:  'lnmiitsharma'// generated ethereal password
+          user: config.email, // generated ethereal user
+          pass:  config.pw// generated ethereal password
       } ,
       tls:{
         rejectUnauthorized:false
@@ -53,8 +55,8 @@ app.post('/send', (req, res) => {
     });
   // setup email data with unicode symbols
   let mailOptions = {
-      from: '"Unbunked Cmpany" <developerlakshay14@gmail.com>', // sender address
-      to: '17ucc034@lnmiit.ac.in', // list of receivers
+      from: '"Unbunked Cmpany" <config.email>', // sender address
+      to: config.users, // list of receivers
       subject: 'Invitation Link Request', // Subject line
       text: 'Here your Invitation Link !', // plain text body
       html: output // html body
