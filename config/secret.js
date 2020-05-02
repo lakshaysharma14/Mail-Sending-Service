@@ -7,7 +7,13 @@ Then Enter the email pw in the field provided
 */ 
 
 module.exports = {
-    email:'',
-    pw:'',
-    users:['' , '' , '']
+    email:'developerlakshay14@gmail.com',
+    pw:'lnmiitsharma',
+    users:['17ucc039@lnmiit.ac.in' , 
+            '17ucc035@lnmiit.ac.in' ,
+            '17uec127@gmail.com',
+            '17uec033@lnmiit.ac.in',
+            '17uec018@lnmiit.ac.in',
+            '17ucs186@lnmiit.ac.in'
+        ]
 }
