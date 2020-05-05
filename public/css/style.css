@@ -1,17 +1,33 @@
-*{
+/* *{
   box-sizing: border-box;
-}
+} */
+/* *
+{
+ margin: 0px;
+ padding: 0px;
+ font-family: monospace;
+} */
 
-body{
-  background:#92bde7;
+/* body{
+  background:#00050a;
   color:#485e74;
   line-height:1.6;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding:1em;
+} */
+header{
+background-image: url('https://images.unsplash.com/photo-1529420705456-5c7e04dd043d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f23d7c077ab1f917d774c638d0aefadc&auto=format&fit=crop&w=700&q=80');
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-size: 100% 100%;
+	justify-content: center;
+	margin-bottom: 30px;
 }
 
+
 .container{
-  max-width:1170px;
+  max-width:800px;
   margin-left:auto;
   margin-right:auto;
   padding:1em;
@@ -54,8 +70,8 @@ ul{
 /* FORM STYLES */
 .contact form{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap:20px;
+  grid-template-columns: 1fr;
+  grid-gap:40px;
 }
 
 .contact form label{
@@ -64,6 +80,7 @@ ul{
 
 .contact form p{
   margin:0;
+  padding-left: 16px;
 }
 
 .contact form .full{
@@ -71,7 +88,7 @@ ul{
 }
 
 .contact form button, .contact form input, .contact form textarea{
-  width:100%;
+  width:80%;
   padding:1em;
   border:1px solid #c9e6ff;
 }

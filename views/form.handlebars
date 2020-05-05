@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pals-Birthday-Invitation</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="public/css/sty.css">
+</head>
+
+<body>
+    <div class="form-area">
+   
+        <h3>Pals-Birthday-Invitation</h3>
+        {{msg}}
+        <form method="POST" action="send">
+       
+            <p class="single-form">
+                <input type="text" name="name" id="name" required>
+                <label for="name">Your Name</label>
+            </p>
+            <p class="single-form">
+                <input type="text" name="bday_boy_girl" id="bday_boy_girl" required>
+                <label for="bday_boy_girl">Birthday Boy / Birthday Girl </label>
+            </p>
+            
+            <p class="single-form">
+                <input type="text" name="phone" id="phone" required>
+                <label for="phone">Phone Number</label>
+            </p>
+            
+            <p class="single-form">
+                <textarea name="message" id="message" required></textarea>
+                <label for="message">Bday Invitation</label>
+            </p>
+
+            <p class="single-form">
+                <button type="submit">Submit</button>
+            </p>
+       
+        </form>
+
+    </div>
+</body>
+</html>

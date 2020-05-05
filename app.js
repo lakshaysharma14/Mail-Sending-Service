@@ -11,7 +11,7 @@ var config = require('./config/secret');
 app.engine('handlebars',exphbs());
 app.set('view engine', 'handlebars');
 
-var port =  process.env.PORT || 3000
+
 //--------------------------------------------------------------------------
 // Static folder
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -21,17 +21,15 @@ app.use(bodyParser.json());
 
 //---------------------------------------------------------------------------
 app.get('/', (req, res) => {
-  res.render('contact',{layout: false});
+  res.render('form',{layout: false});
 });
 
 app.post('/send', (req, res) => {
   const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
+    <p>Birthday Invite</p>
     <ul>  
-      <li>Name: ${req.body.name}</li>
-      <li>Company: ${req.body.company}</li>
-      <li>Email: ${req.body.email}</li>
+      <li>Person Inviting: ${req.body.name}</li>
+      <li>Bday Boy/Girl: ${req.body.bday_boy_girl}</li>
       <li>Phone: ${req.body.phone}</li>
     </ul>
     <h3>Message</h3>
@@ -55,9 +53,9 @@ app.post('/send', (req, res) => {
     });
   // setup email data with unicode symbols
   let mailOptions = {
-      from: '"Unbunked Cmpany" <config.email>', // sender address
+      from: '"Pals@Bday Invitation" <config.email>', // sender address
       to: config.users, // list of receivers
-      subject: 'Invitation Link Request', // Subject line
+      subject: 'Bday Celebration Invitation', // Subject line
       text: 'Here your Invitation Link !', // plain text body
       html: output // html body
   };
@@ -67,12 +65,15 @@ app.post('/send', (req, res) => {
       if (error) {
           return console.log(error);
       }
-      console.log('Message sent: %s', info.messageId);   
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      else
+      {//res.render('form',{layout: false});
+        console.log("Successfully Sent");
+        res.redirect('/');
+      }
 
-      res.render('contact',{layout: false});
+      
   });
 });
 
 //============================================================================
-app.listen(port, () => console.log('Server started...'));
+app.listen(3000, () => console.log('Server started...'));
