@@ -11,7 +11,7 @@ var config = require('./config/secret');
 app.engine('handlebars',exphbs());
 app.set('view engine', 'handlebars');
 
-
+var port = process.env.PORT || 3000;
 //--------------------------------------------------------------------------
 // Static folder
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -76,4 +76,4 @@ app.post('/send', (req, res) => {
 });
 
 //============================================================================
-app.listen(3000, () => console.log('Server started...'));
+app.listen(port, () => console.log('Server started...'));
